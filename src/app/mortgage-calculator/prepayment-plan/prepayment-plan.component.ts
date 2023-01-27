@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { PaymentPlanEnumeration } from 'src/app/shared/enum/payment-plan-enumeration.enum';
-import { MortgageDropDownType } from 'src/app/shared/model/mortgage';
+import { PaymentPlanEnumeration } from '../../shared/enum/payment-plan-enumeration.enum';
+import { MortgageDropDownType } from '../../shared/model/mortgage';
 
 @Component({
   selector: 'app-prepayment-plan',
