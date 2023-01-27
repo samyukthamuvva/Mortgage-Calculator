@@ -1,0 +1,169 @@
+<mat-card>
+  <form [formGroup]="paymentPlanForm" class="align-items-start">
+    <fieldset>
+      <legend class="bold">Payment Plan</legend>
+      <div class="row mb-3">
+        <label
+          for="mortgageAmount"
+          class="col-sm-5 col-form-label text-left justify-content-start"
+        >
+          <i
+            class="bi bi-info-circle-fill p-1"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="{{ tooltipBottom }}"
+          ></i
+          >Mortgage Amount:
+        </label>
+        <div class="col-sm-7">
+          <div class="input-group">
+            <span class="input-group-text">$</span>
+            <input
+              type="number"
+              class="form-control"
+              id="mortgageAmount"
+              formControlName="mortgageAmount"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label
+          for="interestRate"
+          class="col-sm-5 col-form-label text-left justify-content-start"
+        >
+          <i
+            class="bi bi-info-circle-fill p-1"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="{{ tooltipBottom }}"
+          ></i
+          >Interest Rate:
+        </label>
+        <div class="col-sm-4">
+          <div class="input-group">
+            <input
+              type="number"
+              min-value="0"
+              step="0.01"
+              class="form-control"
+              aria-label="Amount (to the nearest dollar)"
+              id="interestRate"
+              formControlName="interestRate"
+            />
+            <span class="input-group-text">%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label
+          for="amortizationPeriod"
+          class="col-sm-5 col-form-label text-left justify-content-start"
+        >
+          <i
+            class="bi bi-info-circle-fill p-1"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="{{ tooltipBottom }}"
+          ></i
+          >Amortization Period:
+        </label>
+        <div class="col-sm-7" formGroupName="amortizationPeriodData">
+          <div class="row-sm-3 form-group">
+            <select
+              class="form-select form-control mr-2"
+              id="amortizationPeriodYears"
+              formControlName="amortizationPeriodYears"
+            >
+              <option value="" selected>Choose...</option>
+              <option
+                *ngFor="let year of amortizationPeriodYears"
+                value="{{ year.value }}"
+              >
+                {{ year.name }}
+              </option>
+            </select>
+          </div>
+          <div class="row-sm-3 form-group">
+            <select
+              class="form-select form-control"
+              id="amortizationPeriodMonths"
+              formControlName="amortizationPeriodMonths"
+            >
+              <option selected>Choose...</option>
+              <option
+                *ngFor="let month of amortizationPeriodMonths"
+                value="{{ month.value }}"
+              >
+                {{ month.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label
+          for="paymentFrequency"
+          class="col-sm-5 col-form-label text-left justify-content-start"
+        >
+          <i
+            class="bi bi-info-circle-fill p-1"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="{{ tooltipBottom }}"
+          ></i
+          >Payment Frequency:
+        </label>
+        <div class="col-sm-7">
+          <div class="input-group">
+            <select
+              class="form-select form-control"
+              id="paymentFrequency"
+              formControlName="paymentFrequency"
+            >
+              <option selected value="">Choose...</option>
+              <option
+                *ngFor="let frequency of paymentFrequency"
+                value="{{ frequency.value }}"
+              >
+                {{ frequency.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label
+          for="inputAmortizationPeriod"
+          class="col-sm-5 col-form-label text-left justify-content-start"
+        >
+          <i
+            class="bi bi-info-circle-fill p-1"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="{{ tooltipBottom }}"
+          ></i
+          >Term:
+        </label>
+        <div class="col-sm-4">
+          <div class="input-group">
+            <select
+              class="form-select form-control"
+              id="term"
+              formControlName="term"
+            >
+              <option value="" selected>Choose...</option>
+              <option *ngFor="let term of termList" value="{{ term.value }}">
+                {{ term.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</mat-card>

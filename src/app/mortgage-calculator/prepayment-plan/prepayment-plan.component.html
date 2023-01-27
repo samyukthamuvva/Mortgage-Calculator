@@ -1,0 +1,91 @@
+<mat-card>
+  <form [formGroup]="prePaymentPlanForm" class="align-items-start">
+    <fieldset>
+      <legend class="bold text-align-center">Pre-Payment Plan</legend>
+
+      <div class="row mb-3">
+        <label
+          for="prePaymentAmount"
+          class="col-sm-5 col-form-label text-left justify-content-start"
+        >
+          <i
+            class="bi bi-info-circle-fill p-1"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="hiii"
+          ></i
+          >Prepayment Amount:
+        </label>
+        <div class="col-sm-7">
+          <div class="input-group">
+            <span class="input-group-text">$</span>
+            <input
+              type="number"
+              min-value="0"
+              step="0.01"
+              class="form-control"
+              id="prePaymentAmount"
+              formControlName="prePaymentAmount"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label
+          for="prePaymentFrequency"
+          class="col-sm-7 col-form-label text-left justify-content-start"
+        >
+          <i
+            class="bi bi-info-circle-fill p-1"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="hiiii"
+          ></i
+          >Prepayment Frequency:
+        </label>
+        <div class="col-sm-4">
+          <div class="input-group">
+            <select
+              id="inputState"
+              class="form-select form-control"
+              formControlName="prePaymentFrequency"
+            >
+              <option selected value="">Choose...</option>
+              <option
+                *ngFor="let frequency of prePaymentFrequency"
+                value="{{ frequency.value }}"
+              >
+                {{ frequency.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label
+          for="startWithPayment"
+          class="col-sm-5 col-form-label text-left justify-content-start"
+        >
+          <i
+            class="bi bi-info-circle-fill p-1"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="hello"
+          ></i
+          >Start with Payment:
+        </label>
+        <div class="col-sm-2">
+          <div class="input-group">
+            <input
+              type="number"
+              class="form-control"
+              id="startWithPayment"
+              formControlName="startWithPayment"
+            />
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</mat-card>

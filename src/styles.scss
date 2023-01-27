@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color: rgb(232, 229, 229);
+    margin: 0px;
+    box-shadow: 2px 2px 2px 2px solid black;
+}
+
+.header {
+    background-color: #2f547a;
+    width: auto;
+    padding: 7px 0;
+}
+
+.title {
+    font-weight: bold;
+    font-family: auto;
+    margin-left: 32px;
+    font-size: 18px;
+    color: whitesmoke;
+}
+mat-card{
+    background-color:#cecccc;
+}

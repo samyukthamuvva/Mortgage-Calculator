@@ -1,0 +1,30 @@
+.wrapper {
+  margin-left: 2%;
+  margin-top: 2%;
+}
+table {
+  width: 100%;
+  background: whitesmoke;
+  box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%),
+    0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+}
+.horizontal-line {
+  margin-right: 2rem;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.calculation-summary-heading {
+  font-weight: 500;
+}
+
+.Mortgage-Calculator-Explanation {
+  font-size: 14px;
+  font-family: auto;
+  margin-bottom: 27px;
+}
+
+.submit-btn {
+  color: #fff;
+  background-color: #2f547a;
+  border-color: #2f547a;
+}
