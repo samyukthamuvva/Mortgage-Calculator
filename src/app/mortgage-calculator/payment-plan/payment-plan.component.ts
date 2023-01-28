@@ -11,8 +11,12 @@ import { PaymentPlanEnumeration } from '../../shared/enum/payment-plan-enumerati
 export class PaymentPlanComponent implements OnInit {
   paymentPlanForm: FormGroup;
   forbiddenNames: any;
-  tooltipBottom: string;
-  
+  mortgageAmountTooltip: string;
+  interestRateTooltip: string;
+  amortizationTooltip: string;
+  paymentFrequencyTooltip: string;
+  termTooltip: string;
+
   @Output() paymentFormDataChange = new EventEmitter<any>();
 
   termList: MortgageDropDownType[] = PaymentPlanEnumeration.Term;
@@ -27,18 +31,27 @@ export class PaymentPlanComponent implements OnInit {
 
   ngOnInit(): void {
     this.paymentPlanForm = new FormGroup({
-      mortgageAmount: new FormControl(1000000),
+      mortgageAmount: new FormControl(100000),
       interestRate: new FormControl(5.0),
       amortizationPeriodData: new FormGroup({
         amortizationPeriodYears: new FormControl('25', [Validators.required]),
-        amortizationPeriodMonths: new FormControl('', [Validators.required]),
+        amortizationPeriodMonths: new FormControl('0', [Validators.required]),
       }),
-      paymentFrequency: new FormControl('12'),
+      paymentFrequency: new FormControl('24'),
       term: new FormControl('5', [Validators.required]),
     });
+    this.paymentFormDataChange.emit(this.paymentPlanForm.value);
 
-    this.tooltipBottom =
+    this.mortgageAmountTooltip =
       PaymentPlanEnumeration.paymentPlanToolTipData.mortgageAmount;
+    this.interestRateTooltip =
+      PaymentPlanEnumeration.paymentPlanToolTipData.interestRate;
+    this.amortizationTooltip =
+      PaymentPlanEnumeration.paymentPlanToolTipData.amortizationData;
+    this.paymentFrequencyTooltip =
+      PaymentPlanEnumeration.paymentPlanToolTipData.paymentFrequency;
+    this.termTooltip = PaymentPlanEnumeration.paymentPlanToolTipData.term;
+
     this.paymentPlanForm.valueChanges.subscribe((result) => {
       if (result) {
         this.paymentFormDataChange.emit(result);

@@ -22,6 +22,7 @@ export class PrepaymentPlanComponent implements OnInit {
       prePaymentFrequency: new FormControl(1),
       startWithPayment: new FormControl(1),
     });
+    this.prePaymentFormDataChange.emit(this.prePaymentPlanForm.value);
     this.prePaymentPlanForm.valueChanges.subscribe((result) => {
       if (result) {
         this.prePaymentFormDataChange.emit(result);
