@@ -31,7 +31,7 @@ export class PaymentPlanComponent implements OnInit {
 
   ngOnInit(): void {
     this.paymentPlanForm = new FormGroup({
-      mortgageAmount: new FormControl(100000),
+      mortgageAmount: new FormControl(100000,[Validators.required]),
       interestRate: new FormControl(5.0),
       amortizationPeriodData: new FormGroup({
         amortizationPeriodYears: new FormControl('25', [Validators.required]),

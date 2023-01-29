@@ -23,14 +23,27 @@ export class MortgageCalculatorComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * method to capture the output emitter value on paymentplanform
+   * @param event 
+   */
   onPaymentPlanFormDataChange(event: any) {
     this.paymentDetails = event;
   }
 
+  /**
+   * method to capture the output emitter value on prepaymentplanform
+   * @param event 
+   */
   onPrePaymentPlanFormDataChange(event: any) {
     this.prePaymentDetails = event;
   }
 
+  /**
+   * method to calculate number of payments
+   * @param years 
+   * @returns 
+   */
   getNumberOfPayments(years: number) {
     return (
       years * this.paymentDetails['paymentFrequency'] +
@@ -42,6 +55,9 @@ export class MortgageCalculatorComponent implements OnInit {
     );
   }
 
+  /**
+   * on click of calculate button in UI calculate method is triggered
+   */
   calculate() {
     let totalPayments =
       this.getNumberOfPayments(
@@ -81,6 +97,7 @@ export class MortgageCalculatorComponent implements OnInit {
     let termInterest =
       oneTimeMortgageAmount * termPayments - termPrincipalAmount;
 
+      /** set the datasource value to display data in calculation summary table */
     this.dataSource = [
       {
         category: 'Number of Payments',
@@ -119,6 +136,13 @@ export class MortgageCalculatorComponent implements OnInit {
     ];
   }
 
+  /**
+   * method to calculate one time Mortgage Amount
+   * @param principal 
+   * @param interest 
+   * @param payments 
+   * @returns 
+   */
   getOneTimeMortgageAmount(principal, interest, payments) {
     return (
       principal *
